@@ -1,4 +1,9 @@
-# Realtime Chat App for pratice 
-__React & Graphql & Websockets__
+# Realtime Chat App for practice 
 
-This is written according to [this tutorial](https://www.youtube.com/watch?v=E3NHd-PkLrQ)
+## With websocket
+
+Enter to [repo](./with_websocket/README.md)
+
+## With socket io
+
+Enter to [repo](./with_socket.io/README.md)
