@@ -16,7 +16,7 @@ const Chat = ({ location }) => {
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "localhost:5000";
+  const ENDPOINT = "https://rchat-pratice.herokuapp.com";
 
   useEffect(() => {
     // parse data from path(url) [return as Object]
