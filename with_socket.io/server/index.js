@@ -14,7 +14,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 // Server Socket
-io.on("connection", (socket) => {
+io.on("connect", (socket) => {
   // Socket Listenr
   // (LISTENER KEYWORD, DATA, DATA, ...)
   socket.on("join", ({ name, room }, callback) => {
@@ -30,20 +30,18 @@ io.on("connection", (socket) => {
     });
     // Send to all the other socket
     socket.broadcast
-      // Set direction
+      // Set target
       .to(user.room)
       .emit("message", { user: "admin", text: `${user.name}, has joined !` });
 
     socket.join(user.room);
-
-    callback();
   });
 
   // sendMessage: user message
   socket.on("sendMessage", (message, callback) => {
     const user = getUser(socket.id);
 
-    io.to(user.room).emit("message", { user: user.name, text: mesasge });
+    io.to(user.room).emit("message", { user: user.name, text: message });
 
     callback();
   });
